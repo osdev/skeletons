@@ -1,12 +1,10 @@
-# skeleton-template
+# bare-bones-x86
 
-This is a template page for a skeleton kernel. When starting a new
-kernel create a new branch from this and fill out the README.md. And
-don't forget to add the branch to the README.md in the master branch.
+This is a simple kernel for 32bit x86 using Bios and GRUB to boot into
+protected mode. It shows how to setup the stack, call C code and
+output a simple text to the VGA text console. See
+http://wiki.osdev.org/Bare_bones for help.
 
 | Architecture | Firmware / Bootloader | Tags |
 | ------------ | --------------------- | ---- |
-|              |                       |      |
-
-Possible tags are: MMU, Higher half, Caches, SMP, VGA, Framebuffer,
-Serial
+| x86 (32bit)  | Bios/GRUB             | VGA  |
