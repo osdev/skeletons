@@ -10,3 +10,14 @@ http://wiki.osdev.org/Bare_bones for help.
 | x86 (32bit)  | Bios/GRUB             | VGA  |
 
 ![screenshot](screenshot.gif)
+
+# Makefile targets
+
+| Target          |                                                 |
+| :-------------- | :---------------------------------------------- |
+| all             | build kernel and boot in qemu-system-i386       |
+| myos.bin        | build kernel                                    |
+| check-multiboot | check if the multiboot header works             |
+| myos.iso        | build CDROM/USB boot image with GRUB menu       |
+| boot-cdrom      | boot kernel in qemu-system-i386 from boot image |
+| boot            | boot kernel directly in qemu-system-i386        |
