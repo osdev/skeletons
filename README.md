@@ -8,3 +8,5 @@ http://wiki.osdev.org/Bare_bones for help.
 | Architecture | Firmware / Bootloader | Tags |
 | ------------ | --------------------- | ---- |
 | x86 (32bit)  | Bios/GRUB             | VGA  |
+
+![screenshot](screenshot.gif)
