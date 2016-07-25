@@ -1,19 +1,18 @@
 CROSS        := i686-elf
-ASFLAGS      :=
 WARN_FLAGS   := -O2 -W -Wall -Wextra
 FLAGS        := -ffreestanding
+ASFLAGS      := $(FLAGS) $(WARN_FLAGS)
 CFLAGS       := $(FLAGS) $(WARN_FLAGS) -std=gnu99
 CXXFLAGS     := $(FLAGS) $(WARN_FLAGS) -std=g++11 -fno-exceptions -fno-rtti
 LDFLAGS      := $(FLAGS) -nostdlib -lgcc
 
-AS := $(CROSS)-as
 CC := $(CROSS)-gcc
 CXX := $(CROSS)-g++
 
 all: boot
 
-%.o: %.s
-	$(AS) -o $@ $<
+%.o: %.S
+	$(CC) -c $(ASFLAGS) -o $@ $<
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
