@@ -23,7 +23,7 @@ SECTIONS
 	 * very early early in the image or the bootloader won't
 	 * recognize the file format. Next the bootstrap code.
 	 */
-	.boot ALIGN(4k): {
+	.boot : ALIGN(4k) {
 		*(.multiboot)
 		*(.bootstrap)
 		/*
@@ -39,25 +39,25 @@ SECTIONS
 	 * The .text section contains all the code for the kernel
 	 * other than the bootstrap code.
 	 */
-	.text ALIGN(4k): {
+	.text : ALIGN(4k) {
 		*(.text.*)
 		*(.text)
 	}
 
 	/* Read-only data. */
-	.rodata ALIGN(4k): {
+	.rodata : ALIGN(4k) {
 		*(.rodata.*)
 		*(.rodata)
 	}
 
 	/* Read-write data (initialized) */
-	.data ALIGN(4K): {
+	.data : ALIGN(4K) {
 		*(.data.*)
 		*(.data)
 	}
 
 	/* Read-write data (uninitialized) and stack */
-	.bss ALIGN(4K): {
+	.bss : ALIGN(4K) {
 		*(.bss.*)
 		*(.bss)
 		*(COMMON)
