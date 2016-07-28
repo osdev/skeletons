@@ -51,4 +51,7 @@ boot-cdrom: myos.iso
 boot: myos.bin
 	qemu-system-i386 -kernel myos.bin
 
+bochs: myos.iso
+	bochs -f bochsrc
+
 .PRECIOUS: %.bin %.iso

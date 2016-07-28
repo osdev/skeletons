@@ -16,8 +16,9 @@ http://wiki.osdev.org/Bare_bones for help.
 | Target          |                                                 |
 | :-------------- | :---------------------------------------------- |
 | all             | build kernel and boot in qemu-system-i386       |
-| myos.bin        | build kernel                                    |
-| check-multiboot | check if the multiboot header works             |
-| myos.iso        | build CDROM/USB boot image with GRUB menu       |
-| boot-cdrom      | boot kernel in qemu-system-i386 from boot image |
+| bochs           | boot kernel in bochs from boot image            |
 | boot            | boot kernel directly in qemu-system-i386        |
+| boot-cdrom      | boot kernel in qemu-system-i386 from boot image |
+| check-multiboot | check if the multiboot header works             |
+| myos.bin        | build kernel                                    |
+| myos.iso        | build CDROM/USB boot image with GRUB menu       |
