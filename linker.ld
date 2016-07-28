@@ -5,6 +5,13 @@
 ENTRY(_start)
 
 /*
+ * Base address of the kernel address space. For a 2GB:2GB split of
+ * user and kernel this is 0x80000000. For a 3GB:1GB split it would be
+ * 0xC0000000. This must match the value in phys_virt.h.
+ */
+VIRT_BASE = 0x80000000;
+
+/*
  * Tell where the various sections of the object files will be put in
  * the final kernel image.
  */
@@ -36,28 +43,33 @@ SECTIONS
 		. = ALIGN(4k);
 	}
 	/*
+	 * From here on virtual addresses are used. The bootstrap code
+	 * takes care of mapping the code to higher half.
+	 */
+	. = . + VIRT_BASE;
+	/*
 	 * The .text section contains all the code for the kernel
 	 * other than the bootstrap code.
 	 */
-	.text : ALIGN(4k) {
+	.text : AT(ADDR(.text) - VIRT_BASE) ALIGN(4k) {
 		*(.text.*)
 		*(.text)
 	}
 
 	/* Read-only data. */
-	.rodata : ALIGN(4k) {
+	.rodata : AT(ADDR(.rodata) - VIRT_BASE) ALIGN(4k) {
 		*(.rodata.*)
 		*(.rodata)
 	}
 
 	/* Read-write data (initialized) */
-	.data : ALIGN(4K) {
+	.data : AT(ADDR(.data) - VIRT_BASE) ALIGN(4K) {
 		*(.data.*)
 		*(.data)
 	}
 
 	/* Read-write data (uninitialized) and stack */
-	.bss : ALIGN(4K) {
+	.bss : AT(ADDR(.bss) - VIRT_BASE) {
 		*(.bss.*)
 		*(.bss)
 		*(COMMON)

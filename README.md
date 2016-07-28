@@ -7,7 +7,7 @@ http://wiki.osdev.org/Bare_bones for help.
 
 | Architecture | Firmware / Bootloader | Tags |
 | ------------ | --------------------- | ---- |
-| x86 (32bit)  | Bios/GRUB             | VGA  |
+| x86 (32bit)  | Bios/GRUB             | VGA, MMU, Higher half  |
 
 ![screenshot](screenshot.gif)
 

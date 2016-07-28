@@ -15,7 +15,10 @@
 #if !defined(__i386__)
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
- 
+
+// get VIRT() define
+#include "phys_virt.h"
+
 /* Hardware text mode color constants. */
 enum vga_color {
 	COLOR_BLACK = 0,
@@ -65,7 +68,8 @@ void terminal_initialize() {
 	terminal_row = 0;
 	terminal_column = 0;
 	terminal_color = make_color(COLOR_LIGHT_GREY, COLOR_BLACK);
-	terminal_buffer = (uint16_t*) 0xB8000;
+	// virtual address of the VGA text mode
+	terminal_buffer = (uint16_t*) VIRT(0xB8000);
 	for (size_t y = 0; y < VGA_HEIGHT; y++) {
 		for (size_t x = 0; x < VGA_WIDTH; x++) {
 			const size_t index = y * VGA_WIDTH + x;
