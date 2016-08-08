@@ -55,3 +55,4 @@ bochs: myos.iso
 	bochs -f bochsrc
 
 .PRECIOUS: %.bin %.iso
+.PHONY: all clean boot bochs boot-cdrom
